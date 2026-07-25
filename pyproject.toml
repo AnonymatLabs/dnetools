@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dnetools"
+version = "2.0.0"
+description = "Modular cybersecurity and network intelligence CLI toolkit"
+readme = "README.md"
+authors = [
+    {name = "Daniel Edeny(Mr Deh H4ck3r)", email = "anonymatlabs@yahoo.com"}
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Security",
+    "Topic :: System :: Networking"
+]
+requires-python = ">=3.8"
+dependencies = [
+    "rich>=13.7.0",
+    "requests>=2.31.0",
+    "dnspython>=2.5.0",
+    "python-whois>=0.8.0",
+    "phonenumbers>=8.13.0",
+    "colorama>=0.4.6"
+]
+
+[project.scripts]
+dnetools = "dnetools:main"
+
+[tool.setuptools.packages.find]
+include = ["dnetools*"]
+exclude = ["tests*", "docs*"]
+
+[tool.setuptools.package-data]
+dnetools = ["assets/*"]
