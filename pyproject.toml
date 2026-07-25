@@ -1,23 +1,48 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
+requires = [
+    "setuptools>=68",
+    "wheel",
+    "build"
+]
 build-backend = "setuptools.build_meta"
+
 
 [project]
 name = "dnetools"
 version = "2.0.0"
-description = "Modular cybersecurity and network intelligence CLI toolkit"
+
+description = "Professional Network Intelligence Toolkit for cybersecurity research and ethical hacking"
+
 readme = "README.md"
+
+requires-python = ">=3.8"
+
 authors = [
-    {name = "Daniel Edeny(Mr Deh H4ck3r)", email = "anonymatlabs@yahoo.com"}
+    {name = "Mr Deh H4ck3r", email = "anonymatlabs@gmail.com"}
 ]
-license = {text = "MIT"}
+
+license = {file = "LICENSE"}
+
+keywords = [
+    "cybersecurity",
+    "network",
+    "osint",
+    "security",
+    "ethical-hacking",
+    "termux",
+    "linux"
+]
+
+
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
     "Topic :: Security",
-    "Topic :: System :: Networking"
+    "Topic :: System :: Networking",
+    "License :: OSI Approved :: Apache Software License"
 ]
-requires-python = ">=3.8"
+
+
 dependencies = [
     "rich>=13.7.0",
     "requests>=2.31.0",
@@ -27,12 +52,41 @@ dependencies = [
     "colorama>=0.4.6"
 ]
 
+
+[project.urls]
+
+Homepage = "https://anonymatlab.blogspot.com"
+
+Repository = "https://github.com/AnonymatLabs/dnetools"
+
+Issues = "https://github.com/AnonymatLabs/dnetools/issues"
+
+
 [project.scripts]
+
 dnetools = "dnetools:main"
 
+
+[tool.setuptools]
+
+py-modules = [
+    "dnetools"
+]
+
+
 [tool.setuptools.packages.find]
-include = ["dnetools*"]
-exclude = ["tests*", "docs*"]
+
+where = ["."]
+include = [
+    "core*",
+    "modules*",
+    "providers*",
+    "reports*"
+]
+
 
 [tool.setuptools.package-data]
-dnetools = ["assets/*"]
+
+assets = [
+    "*"
+]
