@@ -6,10 +6,9 @@ requires = [
 ]
 build-backend = "setuptools.build_meta"
 
-
 [project]
 name = "dnetools"
-version = "2.0.0"
+version = "2.0.1"
 
 description = "Professional Network Intelligence Toolkit for cybersecurity research and ethical hacking"
 
@@ -17,31 +16,48 @@ readme = "README.md"
 
 requires-python = ">=3.8"
 
-authors = [
-    {name = "Mr Deh H4ck3r", email = "anonymatlabs@gmail.com"}
-]
+license = "Apache-2.0"
 
-license = {file = "LICENSE"}
+authors = [
+    { name = "Mr Deh H4ck3r", email = "anonymatlabs@gmail.com" }
+]
 
 keywords = [
     "cybersecurity",
     "network",
+    "networking",
     "osint",
-    "security",
     "ethical-hacking",
+    "security",
+    "dns",
+    "whois",
+    "ip",
+    "geolocation",
     "termux",
-    "linux"
+    "linux",
+    "python",
+    "cli"
 ]
-
 
 classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Operating System :: OS Independent",
+    "Topic :: Internet",
     "Topic :: Security",
     "Topic :: System :: Networking",
-    "License :: OSI Approved :: Apache Software License"
+    "Topic :: Software Development :: Libraries :: Python Modules"
 ]
-
 
 dependencies = [
     "rich>=13.7.0",
@@ -52,30 +68,22 @@ dependencies = [
     "colorama>=0.4.6"
 ]
 
-
 [project.urls]
-
 Homepage = "https://anonymatlab.blogspot.com"
-
 Repository = "https://github.com/AnonymatLabs/dnetools"
-
+Documentation = "https://github.com/AnonymatLabs/dnetools/wiki"
 Issues = "https://github.com/AnonymatLabs/dnetools/issues"
-
+Changelog = "https://github.com/AnonymatLabs/dnetools/releases"
 
 [project.scripts]
-
 dnetools = "dnetools:main"
 
-
 [tool.setuptools]
-
 py-modules = [
     "dnetools"
 ]
 
-
 [tool.setuptools.packages.find]
-
 where = ["."]
 include = [
     "core*",
@@ -83,10 +91,18 @@ include = [
     "providers*",
     "reports*"
 ]
-
+exclude = [
+    "tests*",
+    "docs*"
+]
 
 [tool.setuptools.package-data]
-
-assets = [
-    "*"
+"*" = [
+    "*.md",
+    "*.txt",
+    "*.json",
+    "*.yaml",
+    "*.yml",
+    "*.ini",
+    "*.cfg"
 ]
