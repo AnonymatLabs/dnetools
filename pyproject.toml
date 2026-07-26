@@ -8,7 +8,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dnetools"
-version = "2.0.2"
+version = "2.0.3"
 
 description = "Professional Network Intelligence Toolkit for cybersecurity research and ethical hacking"
 
