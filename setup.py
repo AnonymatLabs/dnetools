@@ -20,7 +20,7 @@ with open("README.md", "r", encoding="utf-8") as readme:
 setup(
     name="dnetools",
 
-    version="2.0.0",
+    version="2.0.1",
 
     description=(
         "Professional Network Intelligence Toolkit "
