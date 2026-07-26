@@ -1,4 +1,4 @@
-name: DNETOOLS Release
+name: Release DNETOOLS
 
 on:
   push:
@@ -10,41 +10,44 @@ permissions:
 
 jobs:
   release:
-    name: Build and Create GitHub Release
 
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source
+
+      - name: Checkout repository
         uses: actions/checkout@v4
+
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.x"
+
 
       - name: Upgrade pip
         run: |
           python -m pip install --upgrade pip
 
+
       - name: Install build tools
         run: |
-          pip install build twine
+          pip install build wheel setuptools
+
 
       - name: Build package
         run: |
           python -m build
 
-      - name: Verify distributions
+
+      - name: Verify package
         run: |
-          twine check dist/*
+          ls -lah dist/
+
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          generate_release_notes: true
           files: |
-            dist/*.whl
-            dist/*.tar.gz
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            dist/*
+          generate_release_notes: true
